@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: true,
   isToc: false,
-  postUpdate: '2022-12-13 11:14:59'
+  postUpdate: '2022-12-13 14:26:11'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -157,12 +157,36 @@ if (false) {
 
 数据域
 指针域
+
+单链表
 入口是head
 结尾的指针域指向空指针
 
-单链表
-### 双链表
-</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/12/12/%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%982/" title="数组专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数组专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/12/%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%982/" title="数组专题2">数组专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-11T13:42:24.000Z" title="发表于 2022-12-11 21:42:24">2022-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">977.有序数组的平方题目链接：https://leetcode.cn/problems/squares-of-a-sorted-array/
+双链表
+每个节点有两个指针域,一个指向上一个节点一个指向下一个节点
+
+循环链表
+链表首尾相连
+
+链表和数组的存储方式&#x2F;时间复杂度数组：
+连续存储在内存中
+插入删除：O(n)
+查询：O(1)
+
+链表
+链表：在内存中可不连续存储插入删除：O(1)
+查询：O(n)
+
+链表定义class ListNode:    def __init__(self, val, next=None):        self.val = val        self.next = next
+
+删除节点删除节点就是把这个节点的指针指向要删掉的节点的下一节点的数据域
+添加节点
+把要添加位置的前一节点的指针指向要添加节点的数据域
+把添加节点的指针指向添加位置后的节点的数据域
+
+203. 移除链表元素题目链接：https://leetcode.cn/problems/remove-linked-list-elements/
+cur的作用是作为新的临时节点指针进行删除原链表元素操作
+原链表删除思路# Def ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/12/12/%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%982/" title="数组专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数组专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/12/%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%982/" title="数组专题2">数组专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-11T13:42:24.000Z" title="发表于 2022-12-11 21:42:24">2022-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">977.有序数组的平方题目链接：https://leetcode.cn/problems/squares-of-a-sorted-array/
 1.暴力思路最直接的思路就是全部都平方然后调用sorted()函数
 class Solution:    def sortedSquares(self, nums: List[int]) -&gt; List[int]:        for i in range(len(nums)):            nums[i] = nums[i]*nums[i]        return sorted(nums)
 
