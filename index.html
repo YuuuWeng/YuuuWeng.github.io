@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: true,
   isToc: false,
-  postUpdate: '2022-12-16 18:49:19'
+  postUpdate: '2022-12-17 18:30:41'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,8 +163,13 @@ if (false) {
 在上面的场景中查询学生姓名，就是通过hashcode把名字转化为数值映射到了哈希表上面的索引数字
 之后为了保证索引数值落在哈希表上面，我们还会对hashcode之后的数值进行取模运算
 
-哈希碰撞对于学生数量大于了创建的哈希表的大小来说
-</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链表专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2">链表专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-14T08:17:10.000Z" title="发表于 2022-12-14 16:17:10">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">24. 两两交换链表中的节点https://leetcode.cn/problems/swap-nodes-in-pairs/
+哈希碰撞对于学生数量大于了创建的哈希表的大小来说有两种解决办法
+
+拉链法：对于冲突的索引值比如位置index0，我们在0的位置创建一个链表储存冲突的学生
+线性探测法：我们首先要保证hash table size要大于数据量，如果一旦发生冲突我们就在hash table寻找下一个空的位置填放
+
+242. 有效的字母异位词https://leetcode.cn/problems/valid-anagram/
+思路</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链表专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2">链表专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-14T08:17:10.000Z" title="发表于 2022-12-14 16:17:10">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">24. 两两交换链表中的节点https://leetcode.cn/problems/swap-nodes-in-pairs/
 思路
 简单模拟题
 掌握好指针移动循序先 cur.next再cur.next.next再cur.next.next.next 
