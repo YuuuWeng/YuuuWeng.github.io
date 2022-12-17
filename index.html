@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: true,
   isToc: false,
-  postUpdate: '2022-12-17 18:56:33'
+  postUpdate: '2022-12-18 00:11:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -157,6 +157,7 @@ if (false) {
 
 主要用来判断看一个元素是不是在这个集合里
 相比较而言数组：如需要查询一个学生姓名，数组需要遍历，而哈希表直接进行索引就可以
+为什么哈希表是O(1)查询呢，因为只要知道key或者对于hashset来说知道索引就可以知道所要查询的值，比如要查询这个学生在不在哈希表&#x2F;set()里面,只需要提供这个人的名字然后用哈希函数把名字转换成hashcode之后，之后用 hash 表的数组长度对 key的hashCode 求余， 余数即为 hash 表数组的下标
 
 哈希函数学生的姓名可以通过哈希函数转化为哈希表的索引
 
@@ -166,10 +167,7 @@ if (false) {
 哈希碰撞对于学生数量大于了创建的哈希表的大小来说有两种解决办法
 
 拉链法：对于冲突的索引值比如位置index0，我们在0的位置创建一个链表储存冲突的学生
-线性探测法：我们首先要保证hash table size要大于数据量，如果一旦发生冲突我们就在hash table寻找下一个空的位置填放
-
-242. 有效的字母异位词https://leetcode.cn/problems/valid-anagram/
-思路</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链表专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2">链表专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-14T08:17:10.000Z" title="发表于 2022-12-14 16:17:10">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">24. 两两交换链表中的节点https://leetcode.cn/problems/swap-nodes-in-pairs/
+线性探测法：我们首先要保证hash table size要大于数据量，如果一旦发生冲突我们就在h ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2"><img class="post_bg" src="https://www.linkpicture.com/q/3f878fc75ad84405bffa29a309238655.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链表专题2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/14/%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%982/" title="链表专题2">链表专题2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-14T08:17:10.000Z" title="发表于 2022-12-14 16:17:10">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">24. 两两交换链表中的节点https://leetcode.cn/problems/swap-nodes-in-pairs/
 思路
 简单模拟题
 掌握好指针移动循序先 cur.next再cur.next.next再cur.next.next.next 
