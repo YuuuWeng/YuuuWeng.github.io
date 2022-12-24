@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>二叉树专题3</title>
+      <link href="/2022/12/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%983/"/>
+      <url>/2022/12/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%983/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二叉树专题2</title>
+      <link href="/2022/12/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%982/"/>
+      <url>/2022/12/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%982/</url>
+      
+        <content type="html"><![CDATA[<h2 id="102-二叉树的层序遍历"><a href="#102-二叉树的层序遍历" class="headerlink" title="102. 二叉树的层序遍历"></a>102. 二叉树的层序遍历</h2><p><a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">https://leetcode.cn/problems/binary-tree-level-order-traversal/</a></p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>利用队列</li><li>重点是要用size记录每层的queue的长度</li><li>cur指向当前pop的节点然后当cur.left不为空加入到queue当cur.right不为空加入到queue</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">levelOrder</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        queue.append(root)</span><br><span class="line">        cur = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            size = <span class="built_in">len</span>(queue)</span><br><span class="line">            result = []</span><br><span class="line">            <span class="keyword">while</span> size:</span><br><span class="line">                cur = queue.popleft()</span><br><span class="line">                result.append(cur.val)</span><br><span class="line">                <span class="keyword">if</span> cur.left != <span class="literal">None</span>:</span><br><span class="line">                    queue.append(cur.left)</span><br><span class="line">                <span class="keyword">if</span> cur.right != <span class="literal">None</span>:</span><br><span class="line">                    queue.append(cur.right)</span><br><span class="line">                size -= <span class="number">1</span></span><br><span class="line">            res.append(result)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure><h2 id="226-翻转二叉树"><a href="#226-翻转二叉树" class="headerlink" title="226. 翻转二叉树"></a>226. 翻转二叉树</h2><p><a href="https://leetcode.cn/problems/invert-binary-tree/description/">https://leetcode.cn/problems/invert-binary-tree/description/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树专题1</title>
       <link href="/2022/12/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%981/"/>
       <url>/2022/12/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%981/</url>
