@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2351. 第一个出现两次的字母</title>
+      <link href="/2023/01/02/2351-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%87%BA%E7%8E%B0%E4%B8%A4%E6%AC%A1%E7%9A%84%E5%AD%97%E6%AF%8D/"/>
+      <url>/2023/01/02/2351-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%87%BA%E7%8E%B0%E4%B8%A4%E6%AC%A1%E7%9A%84%E5%AD%97%E6%AF%8D/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 - 哈希表 - 字符串 - 位运算 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode每日一题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树专题9</title>
       <link href="/2023/01/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%989/"/>
       <url>/2023/01/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%989/</url>
@@ -263,14 +288,16 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 算法基础 </category>
+          
+          <category> 栈与队列 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 栈与队列 </tag>
+            <tag> 算法基础 </tag>
             
         </tags>
       
@@ -313,14 +340,16 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 算法基础 </category>
+          
+          <category> 栈与队列 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 栈与队列 </tag>
+            <tag> 算法基础 </tag>
             
         </tags>
       
@@ -438,14 +467,14 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 链表 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 链表 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -463,14 +492,14 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 链表 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 链表 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -488,14 +517,16 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 算法基础 </category>
+          
+          <category> 数组 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 数组 </tag>
+            <tag> 算法基础 </tag>
             
         </tags>
       
@@ -513,14 +544,16 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 算法基础 </category>
+          
+          <category> 数组 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 数组 </tag>
+            <tag> 算法基础 </tag>
             
         </tags>
       
