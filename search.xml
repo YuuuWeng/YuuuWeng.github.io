@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>1802. 有界数组中指定下标处的最大值</title>
+      <link href="/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/"/>
+      <url>/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1802-有界数组中指定下标处的最大值"><a href="#1802-有界数组中指定下标处的最大值" class="headerlink" title="1802. 有界数组中指定下标处的最大值"></a>1802. 有界数组中指定下标处的最大值</h2><p><img src="/../images/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1802.%20%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 数组 </category>
+          
+          <category> 贪心 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode每日一题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>回溯专题1</title>
       <link href="/2023/01/03/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%981/"/>
       <url>/2023/01/03/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%981/</url>
