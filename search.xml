@@ -4,27 +4,52 @@
   
     
     <entry>
-      <title>1802. 有界数组中指定下标处的最大值</title>
-      <link href="/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/"/>
-      <url>/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</url>
+      <title>NC回溯1</title>
+      <link href="/2023/01/05/NC%E5%9B%9E%E6%BA%AF1/"/>
+      <url>/2023/01/05/NC%E5%9B%9E%E6%BA%AF1/</url>
       
-        <content type="html"><![CDATA[<h2 id="1802-有界数组中指定下标处的最大值"><a href="#1802-有界数组中指定下标处的最大值" class="headerlink" title="1802. 有界数组中指定下标处的最大值"></a>1802. 有界数组中指定下标处的最大值</h2><p><a href="https://leetcode.cn/problems/maximum-value-at-a-given-index-in-a-bounded-array/">Leetcode链接</a></p><p><img src="/../images/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1802.%20%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC.png"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="78-子集"><a href="#78-子集" class="headerlink" title="78. 子集"></a>78. 子集</h2><p><a href="https://leetcode.cn/problems/subsets/">Leetcode链接</a></p><h3 id="回溯思路"><a href="#回溯思路" class="headerlink" title="回溯思路"></a>回溯思路</h3><ul><li><p>首先对于长度为n的数组，每一个数都有两种可能性，所以是2^n种可能性。对于每一个subset可能会到长度为n。所以最差的时间复杂度是<br>O(n*2^n).<br>-对于决策树的构建从给予的数组头部元素开始，有两种选择，</p><ol><li>加进去还是不加，对于已经加进去的节点还有两种可能对于第二个元素有加和不加两种选择。</li><li>对于不加的节点也有两种可能性加第二个元素还是不加。<br>这样子就可以构建出树了</li></ol></li><li><p>回溯终止条件：用i指针记录，当遍历到数组长度的时候就加入到result里面</p></li><li><p>函数参数：传i和subset.i是用来记录遍历深度的。subset是记录子集</p></li><li><p>递归逻辑：分两种情况加入到result里面和不加入到result里面</p></li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">subsets</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">backtracking</span>(<span class="params">i,subset</span>):</span><br><span class="line">            <span class="keyword">if</span> i == <span class="built_in">len</span>(nums):</span><br><span class="line">                result.append(subset.copy())</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            subset.append(nums[i])</span><br><span class="line">            backtracking(i + <span class="number">1</span>,subset)</span><br><span class="line">            subset.pop()</span><br><span class="line">            backtracking(i+<span class="number">1</span>,subset)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        backtracking(<span class="number">0</span>,[])</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><strong>这题重点是如何去重</strong><br><strong>permutations不去重，combinations去重</strong></p>]]></content>
       
       
       <categories>
           
           <category> 算法 </category>
           
-          <category> 数组 </category>
-          
-          <category> 贪心 </category>
+          <category> 回溯 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Leetcode每日一题 </tag>
+            <tag> NC刷题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>1802. 有界数组中指定下标处的最大值</title>
+      <link href="/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/"/>
+      <url>/2023/01/04/1802-%E6%9C%89%E7%95%8C%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E5%A4%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1802-有界数组中指定下标处的最大值"><a href="#1802-有界数组中指定下标处的最大值" class="headerlink" title="1802. 有界数组中指定下标处的最大值"></a>1802. 有界数组中指定下标处的最大值</h2><p><a href="https://leetcode.cn/problems/maximum-value-at-a-given-index-in-a-bounded-array/">Leetcode链接</a></p><h3 id="贪心-二分"><a href="#贪心-二分" class="headerlink" title="贪心+二分"></a>贪心+二分</h3><p>感觉很难的一道题。<br>首先项数对于 1到 n来说有 n-1+1项。算1到n之间的长度和算差值不一样。贪心就是考虑要求的index最大其他就减一。形成等差数列。</p><ul><li>给了n作为数组长度，index作为想要的最大值的index，maxsum作为数组求和以后的最大值</li><li><strong>其中重点是等差数列的计算分为两种情况</strong>。对于你传入的mid的值，和index（看成是一个包含多少元素）<ol><li>当传入的值大于等于包含的总元素时，说明是一个标准的等差数列。求和这个数列是（首项+尾项）*项数&#x2F;2 也就是mid + (mid-总元素 + 1) * 总元素 &#x2F; 2</li><li>当传入值小于包含的总元素时，会有额外的1产出所以计算是 （mid + 1）* mid &#x2F; 2 +额外的一也就是（总元素 - mid）</li></ol></li><li>接着利用二分法求出符合对应面积约束中（<code>sum_array &lt;= maxSum:</code>）最大的值。</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxValue</span>(<span class="params">self, n: <span class="built_in">int</span>, index: <span class="built_in">int</span>, maxSum: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        left = <span class="number">1</span></span><br><span class="line">        right = maxSum</span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = (left + right + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">            sum_array = self.sum_total(mid-<span class="number">1</span>,index) + self.sum_total(mid,n - index)</span><br><span class="line">            <span class="keyword">if</span> sum_array &lt;= maxSum:</span><br><span class="line">                left = mid</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> left </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sum_total</span>(<span class="params">self,value,total_elements</span>):</span><br><span class="line">        <span class="keyword">if</span> value &gt;= total_elements:</span><br><span class="line">            <span class="keyword">return</span> (value + value - total_elements + <span class="number">1</span>) * total_elements // <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> (value + <span class="number">1</span>) * value // <span class="number">2</span>+ total_elements - value</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 二分 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -37,7 +62,7 @@
       <link href="/2023/01/03/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%981/"/>
       <url>/2023/01/03/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%981/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="回溯理论基础"><a href="#回溯理论基础" class="headerlink" title="回溯理论基础"></a>回溯理论基础</h2><ul><li>回溯函数就是指递归函数。</li><li>回溯的本质就是枚举</li><li><strong>组合无序排列有序</strong></li><li>回溯法主要解决的问题是在集合中递归寻找子集的问题可被抽象成树结构</li><li>集合的大小构成了树的宽度，递归的深度构成了树的深度</li></ul><h3 id="相关模板伪代码"><a href="#相关模板伪代码" class="headerlink" title="相关模板伪代码"></a>相关模板伪代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(参数)</span></span></span><br><span class="line"><span class="function"><span class="comment">//终止条件伪代码</span></span></span><br><span class="line"><span class="function"><span class="title">if</span> <span class="params">(终止条件)</span> </span>&#123;</span><br><span class="line">    存放结果;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line"><span class="comment">//回溯函数遍历过程</span></span><br><span class="line"><span class="comment">// for 循环横向遍历，backtracking纵向遍历（深度）</span></span><br><span class="line"><span class="keyword">for</span> (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) &#123;</span><br><span class="line">    处理节点;</span><br><span class="line">    <span class="built_in">backtracking</span>(路径，选择列表); <span class="comment">// 递归</span></span><br><span class="line">    回溯，撤销处理结果</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="77-组合"><a href="#77-组合" class="headerlink" title="77. 组合"></a>77. 组合</h2><p><a href="https://leetcode.cn/problems/combinations/">Leetcode链接</a></p><ul><li>脑海中构建树形图</li><li>思考终止条件：当comb的长度等于题中给的长度的时候就加入到二维result里面去（需要shallow copy）要不然回溯会修改comb的长度</li><li>for loop遍历横向，然后处理节点</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">combine</span>(<span class="params">self, n: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">backtracking</span>(<span class="params">start,comb</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(comb) == k:</span><br><span class="line">                result.append(comb.copy())</span><br><span class="line">                <span class="keyword">return</span> </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start,n + <span class="number">1</span>):</span><br><span class="line">                comb.append(i)</span><br><span class="line">                backtracking(i+<span class="number">1</span>,comb)</span><br><span class="line">                comb.pop()</span><br><span class="line">        backtracking(<span class="number">1</span>,[])</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">        </span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -64,21 +89,21 @@
       <link href="/2023/01/03/2042-%E6%A3%80%E6%9F%A5%E5%8F%A5%E5%AD%90%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E6%98%AF%E5%90%A6%E9%80%92%E5%A2%9E/"/>
       <url>/2023/01/03/2042-%E6%A3%80%E6%9F%A5%E5%8F%A5%E5%AD%90%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E6%98%AF%E5%90%A6%E9%80%92%E5%A2%9E/</url>
       
-        <content type="html"><![CDATA[<h2 id="2042-检查句子中的数字是否递增"><a href="#2042-检查句子中的数字是否递增" class="headerlink" title="2042. 检查句子中的数字是否递增"></a>2042. 检查句子中的数字是否递增</h2><h3 id="直接遍历"><a href="#直接遍历" class="headerlink" title="直接遍历"></a>直接遍历</h3><ul><li>先split成token</li><li>然后就判断首字母是不是数字</li><li>如果是的话就加入到result里面</li><li>然后遍历result数组进行判断</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">areNumbersAscending</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        token = s.split()</span><br><span class="line">        digital_result = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> token:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">ord</span>(i[<span class="number">0</span>]) - <span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>) &gt;= <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">ord</span>(i[<span class="number">0</span>]) - <span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>) &lt;= <span class="number">9</span>:</span><br><span class="line">                digital_result.append(<span class="built_in">int</span>(i))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(digital_result)):</span><br><span class="line">            <span class="keyword">if</span> digital_result[i - <span class="number">1</span>] &gt;= digital_result[i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>遍历一遍</li><li>首先看遍历的是不是数字，不是的话直接continue<ol><li>是字符的话，得再来个while循环来接受全部数字字符。用<code>cur = cur*10 + int(s[i])</code></li><li>遍历完成以后如果当前的字符数字小于等于前面的字符数字就直接<code>return False</code> pre数字最开始initial成0（因为题目中每个数字都是小于100的正整数且不包含前导0）</li><li>如果大于说明符合题意，直接把<code>pre = cur</code></li></ol></li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">areNumbersAscending</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        pre = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(s):</span><br><span class="line">            <span class="keyword">if</span> s[i].isdigit():</span><br><span class="line">                cur = <span class="number">0</span></span><br><span class="line">                <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(s) <span class="keyword">and</span> s[i].isdigit():</span><br><span class="line">                    cur = cur * <span class="number">10</span> + <span class="built_in">int</span>(s[i])</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> cur &lt;= pre:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                     pre = cur</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="2042-检查句子中的数字是否递增"><a href="#2042-检查句子中的数字是否递增" class="headerlink" title="2042. 检查句子中的数字是否递增"></a>2042. 检查句子中的数字是否递增</h2><p><a href="https://leetcode.cn/problems/check-if-numbers-are-ascending-in-a-sentence/">Leetcode链接</a></p><h3 id="直接遍历"><a href="#直接遍历" class="headerlink" title="直接遍历"></a>直接遍历</h3><ul><li>先split成token</li><li>然后就判断首字母是不是数字</li><li>如果是的话就加入到result里面</li><li>然后遍历result数组进行判断</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">areNumbersAscending</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        token = s.split()</span><br><span class="line">        digital_result = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> token:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">ord</span>(i[<span class="number">0</span>]) - <span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>) &gt;= <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">ord</span>(i[<span class="number">0</span>]) - <span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>) &lt;= <span class="number">9</span>:</span><br><span class="line">                digital_result.append(<span class="built_in">int</span>(i))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(digital_result)):</span><br><span class="line">            <span class="keyword">if</span> digital_result[i - <span class="number">1</span>] &gt;= digital_result[i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>遍历一遍</li><li>首先看遍历的是不是数字，不是的话直接continue<ol><li>是字符的话，得再来个while循环来接受全部数字字符。用<code>cur = cur*10 + int(s[i])</code></li><li>遍历完成以后如果当前的字符数字小于等于前面的字符数字就直接<code>return False</code> pre数字最开始initial成0（因为题目中每个数字都是小于100的正整数且不包含前导0）</li><li>如果大于说明符合题意，直接把<code>pre = cur</code></li></ol></li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">areNumbersAscending</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        pre = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(s):</span><br><span class="line">            <span class="keyword">if</span> s[i].isdigit():</span><br><span class="line">                cur = <span class="number">0</span></span><br><span class="line">                <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(s) <span class="keyword">and</span> s[i].isdigit():</span><br><span class="line">                    cur = cur * <span class="number">10</span> + <span class="built_in">int</span>(s[i])</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> cur &lt;= pre:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                     pre = cur</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> 算法 </category>
           
-          <category> 字符串 </category>
+          <category> 暴力 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Leetcode每日一题 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -98,8 +123,6 @@
           
           <category> 算法 </category>
           
-          <category> 数组 </category>
-          
           <category> 优先队列 </category>
           
       </categories>
@@ -107,7 +130,7 @@
       
         <tags>
             
-            <tag> Leetcode每日一题 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -154,8 +177,6 @@
           
           <category> 算法 </category>
           
-          <category> 字符串 </category>
-          
           <category> 哈希表 </category>
           
       </categories>
@@ -163,7 +184,7 @@
       
         <tags>
             
-            <tag> Leetcode每日一题 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
