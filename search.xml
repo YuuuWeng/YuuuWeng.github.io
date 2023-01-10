@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>贪心专题1</title>
+      <link href="/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%981/"/>
+      <url>/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%981/</url>
+      
+        <content type="html"><![CDATA[<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><p>本质是每步都选全局最优从而达到全局最优。（常识性加举反例）</p><h3 id="贪心步骤"><a href="#贪心步骤" class="headerlink" title="贪心步骤"></a>贪心步骤</h3><p>局部最优 -&gt; 全局最优</p><h2 id="455-分发饼干"><a href="#455-分发饼干" class="headerlink" title="455. 分发饼干"></a>455. 分发饼干</h2><p><a href="https://leetcode.cn/problems/assign-cookies/">Leetcode链接</a></p><h3 id="贪心（双指针一个for）"><a href="#贪心（双指针一个for）" class="headerlink" title="贪心（双指针一个for）"></a>贪心（双指针一个for）</h3><ul><li>两种策略，从小往大分配。或者从大往小（数组排序是前提）</li><li>双指针：在保证另一个数组不越界的情况下同时满足题目要求。</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findContentChildren</span>(<span class="params">self, g: <span class="type">List</span>[<span class="built_in">int</span>], s: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        g.sort()</span><br><span class="line">        s.sort()</span><br><span class="line">        result = <span class="number">0</span></span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> index &lt; <span class="built_in">len</span>(g) <span class="keyword">and</span> s[i] &gt;= g[index]:</span><br><span class="line">                result += <span class="number">1</span></span><br><span class="line">                index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure><h2 id="376-摆动序列"><a href="#376-摆动序列" class="headerlink" title="376. 摆动序列"></a>376. 摆动序列</h2><p><a href="https://leetcode.cn/problems/wiggle-subsequence/">Leetcode链接</a></p><h3 id="贪心-1"><a href="#贪心-1" class="headerlink" title="贪心"></a>贪心</h3><p><strong>审题很重要</strong>：正负连续判断条件，相乘小于0</p><ul><li>判断数组连续数字简单差，利用prev和cur来记录然后进行替换。<br>局部最优： 删除单调坡度上的节点。让峰值尽可能的保持峰值<br>全局最优： 整个序列有最多的局部峰值</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wiggleMaxLength</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = <span class="number">1</span></span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(nums)):</span><br><span class="line">            cur = nums[i] - nums[i-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> cur * prev &lt;=<span class="number">0</span> <span class="keyword">and</span> cur != <span class="number">0</span>:</span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line">                <span class="comment">#单调的情况下不更新峰值</span></span><br><span class="line">                prev = cur</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure><h2 id="53-最大子数组和"><a href="#53-最大子数组和" class="headerlink" title="53. 最大子数组和"></a>53. 最大子数组和</h2><p><a href="https://leetcode.cn/problems/maximum-subarray/">Leetcode链接</a></p><h2 id="暴力-超时"><a href="#暴力-超时" class="headerlink" title="暴力(超时)"></a>暴力(超时)</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = -<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i,<span class="built_in">len</span>(nums)):</span><br><span class="line">                count += nums[j]</span><br><span class="line">                <span class="keyword">if</span> res &lt; count:</span><br><span class="line">                    res = count</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="贪心-2"><a href="#贪心-2" class="headerlink" title="贪心"></a>贪心</h3><ul><li>局部最优：当前count和为负数时立刻放弃。从下一个元素开始计算</li><li>全局最优： 在保持局部最优的情况下记录最大的“连续和”。</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = -<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            count += nums[i]</span><br><span class="line">            <span class="comment"># 先赋值再置0</span></span><br><span class="line">            <span class="keyword">if</span> res &lt; count:</span><br><span class="line">                res = count</span><br><span class="line">            <span class="keyword">if</span> count &lt;= <span class="number">0</span>:</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法基础 </category>
+          
+          <category> 贪心 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>回溯专题6</title>
+      <link href="/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%986/"/>
+      <url>/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%986/</url>
+      
+        <content type="html"><![CDATA[<h2 id="332-重新安排行程"><a href="#332-重新安排行程" class="headerlink" title="332. 重新安排行程"></a>332. 重新安排行程</h2><p><a href="https://leetcode.cn/problems/reconstruct-itinerary/">Leetcode链接</a></p><p>暂跳</p><h2 id="51-N-皇后"><a href="#51-N-皇后" class="headerlink" title="51. N 皇后"></a>51. N 皇后</h2><p><a href="https://leetcode.cn/problems/n-queens/">Leetcode链接</a></p><p>暂跳</p><h2 id="37-解数独"><a href="#37-解数独" class="headerlink" title="37. 解数独"></a>37. 解数独</h2><p><a href="https://leetcode.cn/problems/sudoku-solver/">Leetcode链接</a></p><p>暂跳</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法基础 </category>
+          
+          <category> 回溯 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>回溯专题5</title>
       <link href="/2023/01/09/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%985/"/>
       <url>/2023/01/09/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%985/</url>
@@ -19,6 +73,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 算法基础 </tag>
+            
+        </tags>
       
     </entry>
     
