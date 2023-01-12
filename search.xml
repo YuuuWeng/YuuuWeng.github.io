@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>贪心专题2</title>
+      <link href="/2023/01/12/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%982/"/>
+      <url>/2023/01/12/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%982/</url>
+      
+        <content type="html"><![CDATA[<h2 id="122-买卖股票的最佳时机-II"><a href="#122-买卖股票的最佳时机-II" class="headerlink" title="122. 买卖股票的最佳时机 II"></a>122. 买卖股票的最佳时机 II</h2><p><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">Leetcode链接</a></p><h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><p>低买高卖，最终利润是可以分解为每天的单位维度（从第二天开始算起）</p><ul><li>局部最优：收集每天正利润</li><li>全局最优：求最大利润</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(prices)):</span><br><span class="line">            diff = prices[i] - prices[i-<span class="number">1</span>]</span><br><span class="line">            <span class="comment"># if diff &gt; 0 :</span></span><br><span class="line">            <span class="comment">#     res += diff</span></span><br><span class="line">            result += <span class="built_in">max</span>(diff,<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure><h2 id="55-跳跃游戏"><a href="#55-跳跃游戏" class="headerlink" title="55. 跳跃游戏"></a>55. 跳跃游戏</h2><p><a href="https://leetcode.cn/problems/jump-game/"></a></p><h3 id="贪心-1"><a href="#贪心-1" class="headerlink" title="贪心"></a>贪心</h3><p>需要转化问题为看跳跃的范围<code>i+nums[i]</code>能不能覆盖到终点</p><ul><li>局部最优：每次都取最大跳跃步数</li><li>全局最优：看整体的最大跳跃步数能不能到达终点</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">canJump</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        cover = <span class="number">0</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">1</span>:<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="comment"># for loop不支持动态修改i和range里面的变量</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; cover + <span class="number">1</span>:</span><br><span class="line">            cover = <span class="built_in">max</span>(cover,i + nums[i])</span><br><span class="line">            <span class="keyword">if</span> cover &gt;= <span class="built_in">len</span>(nums) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="45-跳跃游戏-II"><a href="#45-跳跃游戏-II" class="headerlink" title="45. 跳跃游戏 II"></a>45. 跳跃游戏 II</h2><p><a href="https://leetcode.cn/problems/jump-game-ii/">Leetcode链接</a></p><h3 id="贪心-2"><a href="#贪心-2" class="headerlink" title="贪心"></a>贪心</h3><p>只往潜力最大的地方跳。比如3142只会向4跳</p><ul><li>用i 和 end记录跳的区间。farthest记录跳的区间的最大值。</li><li>精髓是<code>if end == i</code>时把end更新成区间的最大值。这样子就保证了一直往最大的地方跳</li></ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">jump</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        end = <span class="number">0</span></span><br><span class="line">        farthest = <span class="number">0</span></span><br><span class="line">        jump = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 最后一个不需要判断</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>):</span><br><span class="line">            farthest = <span class="built_in">max</span>(nums[i] + i, farthest)</span><br><span class="line">            <span class="keyword">if</span> end == i:</span><br><span class="line">                end = farthest</span><br><span class="line">                jump += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> jump</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法基础 </category>
+          
+          <category> 贪心 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>贪心专题1</title>
       <link href="/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%981/"/>
       <url>/2023/01/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%981/</url>
